@@ -17,6 +17,11 @@ const routes: Routes = [{
       loadChildren: () => import('./security/security.module')
         .then(m => m.SecurityModule),
     },
+    {
+      path: 'student',
+      loadChildren: () => import('./students/students.module')
+        .then(m => m.StudentsModule),
+    },
 
     // Modules form the template
     {
