@@ -5,11 +5,20 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
+import { SecurityModule } from './security/security.module';
 
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
   children: [
+    // My application modules
+    {
+      path: 'security',
+      loadChildren: () => import('./security/security.module')
+        .then(m => m.SecurityModule),
+    },
+
+    // Modules form the template
     {
       path: 'dashboard',
       component: ECommerceComponent,
