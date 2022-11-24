@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SecurityService } from '../../../services/security.service';
 
 @Component({
   selector: 'ngx-login',
@@ -10,12 +12,13 @@ export class LoginComponent implements OnInit {
   email: string = "";
   password: string = "";
 
-  constructor() { }
+  constructor(private securityService: SecurityService,
+              private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  login() {
-    
+  login(): void {
+    console.log(`Email: ${this.email} - Password ${this.password}`);
   }
 }
