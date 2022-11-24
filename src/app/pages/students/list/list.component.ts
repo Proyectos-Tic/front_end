@@ -11,7 +11,7 @@ import { StudentsService } from '../../../services/students.service';
 })
 export class ListComponent implements OnInit {
 
-  columnNames: string[] = ['Cédula', 'Nombres', 'Apellidos', 'Rol' , 'Opciones']
+  columnNames: string[] = ['Cédula', 'Nombres', 'Apellidos', 'Opciones']
   students: Student[];
 
   constructor(private studentServices: StudentsService,
@@ -48,6 +48,7 @@ export class ListComponent implements OnInit {
         icon: 'warning',
         showCancelButton: true,
         cancelButtonColor: "#D33",
+        cancelButtonText: "Cancelar",
         confirmButtonText: "Si, eliminar.",
         confirmButtonColor: "#3085D6"
       }).then((result)=>{

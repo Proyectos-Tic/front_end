@@ -1,1 +1,53 @@
-<p>Create component inside students module works!!</p>
+<div class="row">
+    <div class="col-lg-12">
+        <nb-card>
+            <nb-card-header *ngIf="creationMode">
+                CREAR ESTUDIANTE
+            </nb-card-header>
+            <nb-card-header *ngIf="!creationMode">
+                ACTUALIZAR ESTUDIANTE
+            </nb-card-header>
+            <nb-card-body>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label>Cédula</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" [disabled]="!creationMode"
+                                [(ngModel)]="student.personal_id"/>
+                        <p *ngIf="sendingAttempt && student.personal_id==''">Requerido</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label>Nombre</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" 
+                                [(ngModel)]="student.name">
+                        <p *ngIf="sendingAttempt && student.name==''">Requerido</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label>Apellido</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control"
+                                [(ngModel)]="student.lastname">
+                        <p *ngIf="sendingAttempt && student.lastname==''">Requerido</p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <button *ngIf="creationMode" class="btn btn-primary btn-block" (click)="create()">
+                        Crear
+                    </button>
+                    <button *ngIf="!creationMode" class="btn btn-primary btn-block" (click)="edit()">
+                        Actualizar
+                    </button>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>
