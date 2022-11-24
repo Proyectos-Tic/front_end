@@ -22,6 +22,31 @@ const routes: Routes = [{
       loadChildren: () => import('./students/students.module')
         .then(m => m.StudentsModule),
     },
+    {
+      path: 'course',
+      loadChildren: () => import('./courses/courses.module')
+        .then(m => m.CoursesModule),
+    },
+    {
+      path: 'department',
+      loadChildren: () => import('./departments/departments.module')
+        .then(m => m.DepartmentsModule)
+    },
+    {
+      path: 'enrollment',
+      loadChildren: () => import('./enrollments/enrollments.module')
+        .then(m => m.EnrollmentsModule)
+    },
+    {
+      path: 'report',
+      loadChildren: () => import('./reports/reports.module')
+        .then(m => m.ReportsModule)
+    },
+    {
+      path: 'user',
+      loadChildren: () => import('./users/users.module')
+        .then(m => m.UsersModule)
+    },
 
     // Modules form the template
     {
