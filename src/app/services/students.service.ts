@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Student } from '../models/student.model';
 
@@ -16,7 +17,9 @@ export class StudentsService {
    * @returns 
    */
   list(): Observable<Student[]>{
-    return this.http.get<Student[]>(`${environment.url_api_gateway}/students`);
+    return this.http.get<Student[]>(`${environment.url_api_gateway}/students`)
+            .pipe(tap(_ => console.log('Estudiantes obtenidos')
+            ));
   }
 
   /**

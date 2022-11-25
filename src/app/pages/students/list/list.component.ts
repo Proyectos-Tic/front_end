@@ -23,14 +23,18 @@ export class ListComponent implements OnInit {
   }
 
   list(): void{
-    this.studentServices.list().subscribe(
-      data => {
+    this.studentServices.list().subscribe({next: value => console.log(value)});
+    
+    this.studentServices.list().subscribe({
+      next: data => {
         this.students = data;
       },
-      error => {
+      error: error => {
+        console.log(`Error en list:`);
         console.log(error);
+        
       }
-    )
+    })
   }
 
   create(): void{
