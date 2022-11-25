@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { CandidateRoutingModule } from './candidate-routing.module';
 import { ListComponent } from './list/list.component';
 import { CreateComponent } from './create/create.component';
+import { NbCardModule } from '@nebular/theme';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import { CreateComponent } from './create/create.component';
   ],
   imports: [
     CommonModule,
-    CandidateRoutingModule
+    CandidateRoutingModule,
+    NbCardModule,
+    FormsModule
   ]
 })
 export class CandidateModule { }

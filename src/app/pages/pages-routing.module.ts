@@ -10,6 +10,50 @@ const routes: Routes = [{
   path: '',
   component: PagesComponent,
   children: [
+    // My app modules
+    {
+      path: 'security',
+      loadChildren: () => import("./security/security.module")
+        .then(m => m.SecurityModule),
+    },
+    {
+      path: 'candidate',
+      loadChildren: () => import("./candidate/candidate.module")
+        .then(m => m.CandidateModule),
+    },
+    {
+      path: 'party',
+      loadChildren: () => import("./party/party.module")
+        .then(m => m.PartyModule)
+    },
+    {
+      path: 'table',
+      loadChildren: () => import("./table/table.module")
+        .then(m => m.TableModule)
+    },
+    {
+      path: 'vote',
+      loadChildren: () => import("./vote/vote.module")
+        .then(m => m.VoteModule)
+    },
+    {
+      path: 'report',
+      loadChildren: () => import("./report/report.module")
+        .then(m => m.ReportModule)
+    },
+    {
+      path: 'user',
+      loadChildren: () => import("./user/user.module")
+        .then(m => m.UserModule)
+    },
+    {
+      path: 'rol',
+      loadChildren: () => import("./rol/rol.module")
+        .then(m => m.RolModule)
+    },
+
+
+    // Modules from the template
     {
       path: 'dashboard',
       component: ECommerceComponent,
