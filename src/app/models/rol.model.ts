@@ -1,6 +1,6 @@
 export class Rol {
     //Security backend attributes
-    id?: number;
+    idRol?: number;
     name?: string;
     description?: string;
 }
