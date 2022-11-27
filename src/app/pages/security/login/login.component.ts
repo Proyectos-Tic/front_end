@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { User } from '../../../models/user.model';
 import { SecurityService } from '../../../services/security.service';
+import { UserService } from '../../../services/user.service';
 import { ShowcaseDialogComponent } from '../../modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
 
 @Component({
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
   password: string = "";
 
   constructor(private securityService: SecurityService,
-              private router: Router) { }
+              private router: Router,
+              private userService: UserService) { }
 
   ngOnInit(): void {
   }
@@ -30,7 +32,20 @@ export class LoginComponent implements OnInit {
     this.securityService.validateLogin(user).subscribe(
       data => {
         this.securityService.saveSessionData(data);
-        this.router.navigate(["pages/candidate/list"])
+        Swal.fire({
+            title:'Redirigiendo',
+            text:`Bienvenido nuevamente ${data.rol.name}`,
+            showConfirmButton: false,
+            timer: 3500
+          })
+          if(data.rol.name=='Administrador'){
+            this.router.navigate(["pages/user/list"]);
+          }
+          else if (data.rol.name=='Jurado'){
+            this.router.navigate(["pages/vote/list"]);
+          }
+          else
+            this.router.navigate(["pages/report/candidate"]);        
       },
       error => {
         console.log(error);

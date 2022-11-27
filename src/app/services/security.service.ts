@@ -27,14 +27,14 @@ export class SecurityService {
   }
 
   //Logic methods
-  public validateLogin(user: User): Observable<User>{
+  public validateLogin(user: User): Observable<any>{
     return this.http.post(`${environment.url_api_gateway}/login`,user);
   }
 
   public saveSessionData(sessionData: any){
     //Save the data from the ApiGateway in userData
     let userData : User = {
-      id: sessionData.user_id,
+      idUser: sessionData.user_id,
       token: sessionData.token
     };
     // Code: JSON to String
