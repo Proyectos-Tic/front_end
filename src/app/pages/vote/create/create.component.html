@@ -1,1 +1,47 @@
-<p>create works!</p>
+<div class="row">
+    <div class="col-lg-12">
+        <nb-card>
+            <nb-card-header *ngIf="creationMode">
+                CREAR VOTO
+            </nb-card-header>
+            <nb-card-header *ngIf="!creationMode">
+                ACTUALIZAR PARTIDO POLITICO
+            </nb-card-header>
+            <nb-card-body>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label>Candidato politico</label>
+                        <label id="required" *ngIf="sendingAttempt && voto.candidato._id==''">*</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <select class="form-control" [(ngModel)]="voto.candidato._id">
+                            <option *ngFor="let candidato of candidatos" [value]="candidato._id">{{candidato.name}} {{candidato.lastname}} | {{candidato.partido.nombre}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <label>Mesa de votación</label>
+                        <label id="required" *ngIf="sendingAttempt && voto.mesa._id==''">*</label>
+                    </div>
+                    <div class="col-lg-9">
+                        <select class="form-control" [(ngModel)]="voto.mesa._id">
+                            <option *ngFor="let mesa of mesas" [value]="mesa._id">{{mesa.numero}}</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <button *ngIf="creationMode" class="btn btn-primary btn-block" (click)="create()">
+                        Crear
+                    </button>
+                    <button *ngIf="!creationMode" class="btn btn-primary btn-block" (click)="update()">
+                        Actualizar
+                    </button>
+                </div>
+
+                
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>
