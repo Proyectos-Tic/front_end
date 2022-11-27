@@ -41,7 +41,7 @@ export class ListComponent implements OnInit {
   }
 
   update(id_ : string): void{
-    this.router.navigate(["pages/candidato/update/"+id_])
+    this.router.navigate(["pages/candidate/update/"+id_])
   }
 
   delete(id_ : string): void{
@@ -63,6 +63,7 @@ export class ListComponent implements OnInit {
               "El estudiante ha sido eliminado correctamente.",
               "success"
             )
+            this.ngOnInit();
           },
           error => {
             console.log(error);
