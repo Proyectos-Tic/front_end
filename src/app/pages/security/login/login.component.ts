@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     this.securityService.validateLogin(user).subscribe(
       data => {
         this.securityService.saveSessionData(data);
-        this.router.navigate(["pages/table/list"])
+        this.router.navigate(["pages/candidate/list"])
       },
       error => {
         console.log(error);
