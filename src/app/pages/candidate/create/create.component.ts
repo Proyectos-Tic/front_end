@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Candidate } from '../../../models/candidate.model';
+import { Party } from '../../../models/party.model';
 import { CandidateService } from '../../../services/candidate.service';
+import { PartyService } from '../../../services/party.service';
 
 @Component({
   selector: 'ngx-create',
@@ -18,16 +20,22 @@ export class CreateComponent implements OnInit {
     lastname: "",
     n_resolution: "",
     name: "",
-    partido: JSON,
+    partido: {
+      _id:"",
+    },
   }
+
+  partidos: Party[];
 
   sendingAttempt: boolean = false;
 
   constructor(private candidateServices: CandidateService,
+              private partyService: PartyService,
               private router: Router,
               private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.getParties();
     if(this.activatedRoute.snapshot.params.candidateId){
       // Update
       this.creationMode = false;
@@ -50,10 +58,21 @@ export class CreateComponent implements OnInit {
     );
   }
 
+  getParties(): void{
+    this.partyService.list().subscribe(
+      data => {
+        this.partidos = data;
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
   validateMandatoryData(): boolean {
     this.sendingAttempt =  true;
     if(this.candidate.id_personal=="" || this.candidate.name=="" || this.candidate.lastname=="" ||
-        this.candidate.n_resolution==""){
+        this.candidate.n_resolution=="" || this.candidate.partido._id==""){
           return false;
         }
     else
@@ -62,6 +81,8 @@ export class CreateComponent implements OnInit {
 
   create():void{
     if(this.validateMandatoryData()){
+      console.log(this.candidate);
+      
       this.candidateServices.create(this.candidate).subscribe(
         data => {
           Swal.fire(
