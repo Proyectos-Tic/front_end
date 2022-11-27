@@ -21,31 +21,30 @@
                 <div class="row">
                     <div class="col-lg-3">
                         <label>Nombre</label>
-                    </div>
+                        <label id="required" *ngIf="sendingAttempt && candidate.name==''">*</label>                    </div>
                     <div class="col-lg-9">
                         <input type="text" class="form-control"
                             [(ngModel)]="candidate.name">
-                        <p *ngIf="sendingAttempt && candidate.name==''">Requerido</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-3">
                         <label>Apellido</label>
+                        <label id="required" *ngIf="sendingAttempt && candidate.lastname==''">*</label>
                     </div>
                     <div class="col-lg-9">
                         <input type="text" class="form-control"
                             [(ngModel)]="candidate.lastname">
-                        <p *ngIf="sendingAttempt && candidate.lastname==''">Requerido</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-3">
                         <label>Resolución</label>
+                        <label id="required" *ngIf="sendingAttempt && candidate.n_resolution==''">*</label>
                     </div>
                     <div class="col-lg-9">
                         <input type="text" class="form-control"
                             [(ngModel)]="candidate.n_resolution">
-                        <p *ngIf="sendingAttempt && candidate.n_resolution==''">Requerido</p>
                     </div>
                 </div>
                 <br>

@@ -61,7 +61,7 @@ export class CreateComponent implements OnInit {
   }
 
   create():void{
-    if(this.validateMandatoryData){
+    if(this.validateMandatoryData()){
       this.candidateServices.create(this.candidate).subscribe(
         data => {
           Swal.fire(
@@ -94,7 +94,7 @@ export class CreateComponent implements OnInit {
   }
 
   update():void{
-    if(this.validateMandatoryData){
+    if(this.validateMandatoryData()){
       let candidate_ : Candidate = {...this.candidate}
       delete candidate_._id
       this.candidateServices.update(candidate_, this.candidate._id).subscribe(

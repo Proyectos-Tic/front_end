@@ -60,7 +60,7 @@ export class ListComponent implements OnInit {
           data => {
             Swal.fire(
               "Eliminado",
-              "El estudiante ha sido eliminado correctamente.",
+              "El candidato ha sido eliminado correctamente.",
               "success"
             )
             this.ngOnInit();
@@ -69,7 +69,7 @@ export class ListComponent implements OnInit {
             console.log(error);
             Swal.fire(
               "Error al eliminar",
-              "No se ha podido eliminar el estudiante.",
+              "No se ha podido eliminar el candidato.",
               "error"
             )
             
