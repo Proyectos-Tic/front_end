@@ -131,8 +131,8 @@ export class CreateComponent implements OnInit {
           console.log(error);
           Swal.fire({
             title:"Error en el proceso",
-            text:"Por favor, diligenciar todos los campos obligatorios",
-            icon: "warning",
+            text:"Estamos presentando inconvenientes. Por favor, intente mas tarde",
+            icon: "error",
             timer: 5000
           })
           
