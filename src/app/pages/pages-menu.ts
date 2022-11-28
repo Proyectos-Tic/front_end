@@ -2,15 +2,120 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
+    title: 'ELECCIONES',
+    group: true,
+  },
+  {
+    title: 'Reportes',
+    icon: 'pie-chart-outline',
+    children: [
+      {
+        title: 'Dashboard',
+        link: '/pages/mesas/crear',
+      },
+      {
+        title: 'Candidatos',
+        link: '/pages/mesas/listar',
+      },
+      {
+        title: 'Mesas',
+        link: '/pages/mesas/listar',
+      },
+      {
+        title: 'Partidos',
+        link: '/pages/mesas/listar',
+      }
+    ],
+  },
+  {
+    title: 'Mesas',
+    icon: 'grid-outline',
+    children: [
+      {
+        title: 'Crear',
+        link: '/pages/mesas/crear',
+      },
+      {
+        title: 'Listar',
+        link: '/pages/mesas/listar',
+      }
+    ],
+  },
+  {
+    title: 'Partidos Politicos',
+    icon: 'people-outline',
+    children: [
+      {
+        title: 'Crear',
+        link: '/pages/partidos/crear',
+      },
+      {
+        title: 'Listar',
+        link: '/pages/partidos/listar',
+      },
+    ],
+  },
+  {
+    title: 'Candidatos',
+    icon: 'person-outline',
+    children: [
+      {
+        title: 'Crear',
+        link: '/pages/candidatos/crear',
+      },
+      {
+        title: 'Listar',
+        link: '/pages/candidatos/listar',
+      }
+    ],
+  },
+  {
+    title: 'Registro Votos',
+    icon: 'edit-2-outline',
+    link: '/pages/resultados/crear'
+  },
+  {
+    title: 'SEGURIDAD',
+    group: true,
+  },
+  {
+    title: 'Usuarios',
+    icon: 'lock-outline',
+    children: [
+      {
+        title: 'Crear',
+        link: '/pages/usuarios/crear',
+      },
+      {
+        title: 'Listar',
+        link: '/pages/usuarios/listar',
+      },
+    ],
+  },
+  {
+    title: 'Roles',
+    icon: 'layers-outline',
+    children: [
+      {
+        title: 'Crear',
+        link: '/pages/roles/crear',
+      },
+      {
+        title: 'Listar',
+        link: '/pages/roles/listar',
+      },
+    ],
+  },
+  // VVV BORRAR TODO DE ACA PARA ABAJO VVV
+  /* {
+    title: '--------------------------',
+    group: true,
+  },
+  {
     title: 'E-commerce',
     icon: 'shopping-cart-outline',
     link: '/pages/dashboard',
     home: true,
-  },
-  {
-    title: 'IoT Dashboard',
-    icon: 'home-outline',
-    link: '/pages/iot-dashboard',
   },
   {
     title: 'FEATURES',
@@ -115,36 +220,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
-    title: 'Extra Components',
-    icon: 'message-circle-outline',
-    children: [
-      {
-        title: 'Calendar',
-        link: '/pages/extra-components/calendar',
-      },
-      {
-        title: 'Progress Bar',
-        link: '/pages/extra-components/progress-bar',
-      },
-      {
-        title: 'Spinner',
-        link: '/pages/extra-components/spinner',
-      },
-      {
-        title: 'Alert',
-        link: '/pages/extra-components/alert',
-      },
-      {
-        title: 'Calendar Kit',
-        link: '/pages/extra-components/calendar-kit',
-      },
-      {
-        title: 'Chat',
-        link: '/pages/extra-components/chat',
-      },
-    ],
-  },
-  {
     title: 'Maps',
     icon: 'map-outline',
     children: [
@@ -185,20 +260,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
-    title: 'Editors',
-    icon: 'text-outline',
-    children: [
-      {
-        title: 'TinyMCE',
-        link: '/pages/editors/tinymce',
-      },
-      {
-        title: 'CKEditor',
-        link: '/pages/editors/ckeditor',
-      },
-    ],
-  },
-  {
     title: 'Tables & Data',
     icon: 'grid-outline',
     children: [
@@ -211,37 +272,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/tables/tree-grid',
       },
     ],
-  },
-  {
-    title: 'Miscellaneous',
-    icon: 'shuffle-2-outline',
-    children: [
-      {
-        title: '404',
-        link: '/pages/miscellaneous/404',
-      },
-    ],
-  },
-  {
-    title: 'Auth',
-    icon: 'lock-outline',
-    children: [
-      {
-        title: 'Login',
-        link: '/auth/login',
-      },
-      {
-        title: 'Register',
-        link: '/auth/register',
-      },
-      {
-        title: 'Request Password',
-        link: '/auth/request-password',
-      },
-      {
-        title: 'Reset Password',
-        link: '/auth/reset-password',
-      },
-    ],
-  },
+  }, */
+
 ];

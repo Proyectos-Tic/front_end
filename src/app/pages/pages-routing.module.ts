@@ -10,6 +10,40 @@ const routes: Routes = [{
   path: '',
   component: PagesComponent,
   children: [
+    // MY COMPONENTS
+    {
+      path: 'seguridad',
+      loadChildren: () => import('./security/security.module').then(m => m.SecurityModule),
+    },
+    {
+      path: 'candidatos',
+      loadChildren: () => import('./candidates/candidates.module').then(m => m.CandidatesModule),
+    },
+    {
+      path: 'mesas',
+      loadChildren: () => import('./voting-tables/voting-tables.module').then(m => m.VotingTablesModule),
+    },
+    {
+      path: 'partidos',
+      loadChildren: () => import('./parties/parties.module').then(m => m.PartiesModule),
+    },
+    {
+      path: 'resultados',
+      loadChildren: () => import('./results/results.module').then(m => m.ResultsModule),
+    },
+    {
+      path: 'reportes',
+      loadChildren: () => import('./reports/reports.module').then(m => m.ReportsModule),
+    },
+    {
+      path: 'usuarios',
+      loadChildren: () => import('./users/users.module').then(m => m.UsersModule),
+    },
+    {
+      path: 'roles',
+      loadChildren: () => import('./roles/roles.module').then(m => m.RolesModule),
+    },
+    // TEMPLATE COMPONENTS
     {
       path: 'dashboard',
       component: ECommerceComponent,

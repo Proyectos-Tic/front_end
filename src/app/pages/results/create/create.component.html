@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-lg-12">
+    <nb-card>
+      <nb-card-header *ngIf="creationMode">
+        REGISTRO DE VOTO
+      </nb-card-header>
+      <nb-card-body>
+
+        <div class="row">
+          <div class="col-lg-3">
+            <label>Mesa</label>
+          </div>
+          <div class="col-lg-9">
+            <select class="form-control" [(ngModel)]="result.table._id">
+              <option *ngFor="let table of tables" [value]="table._id">{{table.number}}</option>
+            </select>
+            <p *ngIf="sendingAttempt && result.table._id==''">REQUERIDO</p>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-lg-3">
+            <label>Candidato</label>
+          </div>
+          <div class="col-lg-9">
+            <select class="form-control" [(ngModel)]="result.candidate._id">
+              <option *ngFor="let candidate of candidates" [value]="candidate._id">
+                {{candidate.name}} {{candidate.lastname}} || {{candidate.party.name}}
+              </option>
+            </select>
+            <p *ngIf="sendingAttempt && result.candidate._id==''">REQUERIDO</p>
+          </div>
+        </div>
+
+        <br/>
+        <div class="row">
+          <button class="btn btn-primary btn-block" (click)="create()">
+            Registrar
+          </button>
+
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

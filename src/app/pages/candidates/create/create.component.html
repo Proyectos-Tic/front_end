@@ -1,0 +1,75 @@
+<div class="row">
+  <div class="col-lg-12">
+    <nb-card>
+      <nb-card-header *ngIf="creationMode">
+        CREAR CANDIDATO
+      </nb-card-header>
+      <nb-card-header *ngIf="!creationMode">
+        EDITAR CANDIDATO
+      </nb-card-header>
+      <nb-card-body>
+        <div class="row">
+          <div class="col-lg-3">
+            <label>Nombre</label>
+          </div>
+          <div class="col-lg-9">
+            <input type="text" class="form-control" [(ngModel)]="candidate.name"/>
+            <p *ngIf="sendingAttempt && candidate.name==''">REQUERIDO</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+            <label>Apellido</label>
+          </div>
+          <div class="col-lg-9">
+            <input type="text" class="form-control" [(ngModel)]="candidate.lastname"/>
+            <p *ngIf="sendingAttempt && candidate.lastname==''">REQUERIDO</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+            <label>CC</label>
+          </div>
+          <div class="col-lg-9">
+            <input type="number" class="form-control" [(ngModel)]="candidate.cc" [disabled]=!creationMode/>
+            <p *ngIf="sendingAttempt && candidate.cc==null">REQUERIDO</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+            <label>Resolution</label>
+          </div>
+          <div class="col-lg-9">
+            <input type="number" class="form-control" [(ngModel)]="candidate.resolution"/>
+            <p *ngIf="sendingAttempt && candidate.resolution==null">REQUERIDO</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+            <label>Partido</label>
+          </div>
+          <div class="col-lg-9">
+
+            <select class="form-control" [(ngModel)]="candidate.party._id">
+              <option *ngFor="let party of parties" [value]="party._id">{{party.name}}</option>
+            </select>
+
+
+            <p *ngIf="sendingAttempt && candidate.party._id==null">REQUERIDO</p>
+          </div>
+        </div>
+
+        <br/>
+        <div class="row">
+          <button *ngIf="creationMode" class="btn btn-primary btn-block" (click)="create()">
+            Crear
+          </button>
+          <button *ngIf="!creationMode" class="btn btn-primary btn-block" (click)="edit()">
+            Editar
+          </button>
+
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
